@@ -1,17 +1,17 @@
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { APP_NAME } from "@/lib/constants";
-import { ShoppingCart, UserIcon } from "lucide-react";
+// import { ShoppingCart, UserIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import ModeToggle from "./modeToggle";
-
+// import ModeToggle from "./modeToggle";
+import Menu from "./menu";
 const Header = () => {
   return (
     <header className="w-full border-b">
       <div className="flex justify-between wrapper flex-between">
         <div className=" flex-start">
-          <Link href="/" className="flex-start ml-4">
+          <Link href="/" className="flex flex-start ml-4">
             <Image
               priority={true}
               width={48}
@@ -24,7 +24,8 @@ const Header = () => {
             </span>
           </Link>
         </div>
-        <div className="space-x-2">
+        <Menu />
+        {/* <div className="space-x-2">
           <ModeToggle />
           <Button asChild variant="ghost">
             <Link href="/cart">
@@ -37,7 +38,7 @@ const Header = () => {
               <UserIcon /> Sign IN
             </Link>
           </Button>
-        </div>
+        </div> */}
       </div>
     </header>
   );
