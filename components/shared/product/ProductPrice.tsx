@@ -2,7 +2,8 @@ import React from 'react'
 import { cn } from '@/lib/utils';
 
 const ProductPrice = ({value,className}:{value:number,className?:string}) => {
-  const [intValue, floatValue] = value.toFixed(2).split('.');
+ console.log('ProductPrice value', value);
+  const [intValue, floatValue] = Number(value)?.toFixed(2).split('.');
 
     return (
     <p className={cn('text-2xl',className)}>

@@ -3,10 +3,10 @@ import Link from "next/link"; // lucide-react's Link is not for navigation
 import Image from "next/image";
 import React from "react";
 import ProductPrice from "./ProductPrice";
+import { Product } from "@/lib/generated/prisma";
 
-const ProductCard = ({ product }: { product: any }) => {
+const ProductCard = ({ product }: { product: Product }) => {
   if (!product?.images?.[0] || !product?.slug) return null;
-const [euros, cents] = product.price.toFixed(2).split('.');
 
   return (
     <Card className="w-full max-w-sm">
@@ -33,10 +33,10 @@ const [euros, cents] = product.price.toFixed(2).split('.');
         <h2 className="text-sm font-medium">{product.name}</h2>
         </Link>
         <div className="felx-between gap-4">
-            <p>{product.rating} Stars</p>
+            <p>{product.rating?.toString()} Stars</p>
             {product.stock >0 ?(
                 <ProductPrice
-                    value={product.price}
+                    value={Number(product.price)}
                     />
             ):(
                 <p className="text-destructive">Out of Stock</p>
