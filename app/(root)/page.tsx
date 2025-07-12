@@ -3,6 +3,6 @@ import { getLastestProducts } from "@/lib/actions/getLatestProducts";
 export const Page = async() => {
   const productData = await getLastestProducts();
   return (
-      <ProductList data={productData} title="Newest Arrivals" />
+     Array.isArray(productData) &&  <ProductList data={ productData } title="Newest Arrivals" />
   );
 };

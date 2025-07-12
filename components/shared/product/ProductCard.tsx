@@ -1,11 +1,11 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import Link from "next/link"; // lucide-react's Link is not for navigation
+import Link from "next/link";
 import Image from "next/image";
 import React from "react";
+import { ProductType } from "@/types";
 import ProductPrice from "./ProductPrice";
-import { Product } from "@/lib/generated/prisma";
 
-const ProductCard = ({ product }: { product: Product }) => {
+const ProductCard = ({ product }: { product: ProductType }) => {
   if (!product?.images?.[0] || !product?.slug) return null;
 
   return (
@@ -29,20 +29,18 @@ const ProductCard = ({ product }: { product: Product }) => {
         <Link
           href={`/product/${product.slug}`}
           className=" hover:underline cursor-pointer"
-          >
-        <h2 className="text-sm font-medium">{product.name}</h2>
+        >
+          <h2 className="text-sm font-medium">{product.name}</h2>
         </Link>
         <div className="felx-between gap-4">
-            <p>{product.rating?.toString()} Stars</p>
-            {product.stock >0 ?(
-                <ProductPrice
-                    value={Number(product.price)}
-                    />
-            ):(
-                <p className="text-destructive">Out of Stock</p>
-            )}
+          <p>{product.rating?.toString()} Stars</p>
+          {product.stock > 0 ? (
+            <ProductPrice value={Number(product.price)} />
+          ) : (
+            <p className="text-destructive">Out of Stock</p>
+          )}
         </div>
-        </CardContent>
+      </CardContent>
     </Card>
   );
 };

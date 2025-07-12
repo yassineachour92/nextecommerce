@@ -1,19 +1,16 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-import { Product } from "@/components/types/productType";
+import { ProductType } from "@/types";
 
 
 
 const ProductList = async ({
   data,
   title,
-  limit,
 }: {
-  data: Product[];
+  data: ProductType[];
   title?: string;
-  limit?: number;
 }) => {
-  console.log('data', data);
   
   return (
     <div className="my-10">
