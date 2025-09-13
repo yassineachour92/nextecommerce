@@ -11,7 +11,7 @@ export type ProductType = z.infer<typeof insertProductSchema> & {
   description: string;
   stock: number;
   price: number;
-  rating: number; // Noté en nombre
+  rating: number;
   numReviews: number;
   isFeatured: boolean;
   banner: string | null;
